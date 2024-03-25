@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.navbar {
+  display: flex;
+
+  justify-content: left;
+  align-items: center;
+}
+
+.iconname {
+  margin-right: 50px;
+  align-items: center;
+  justify-content: center;
+}
+
+.navigator {
+  display: flex;
+  justify-content: center;
+  /* Center the content horizontally */
+}
+
+.navigator ul {
+  display: flex;
+  justify-content: space-between;
+  /* Distribute list items with space between */
+  list-style-type: none;
+  /* Remove default list styles */
+  padding: 0;
+  /* Remove default padding */
+}
+
+.navigator li {
+  margin: 0 10px;
+  /* Add minimum spacing between list items */
+  font-family: 'Roboto', sans-serif;
+  /* Example: Popular font for portfolios */
+}
