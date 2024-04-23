@@ -6,6 +6,7 @@ import Other from "./components/Other";
 import Projects from "./components/Projects";
 import Works from "./components/Works";
 import Home from './components/Home';
+
 import './App.css';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <div>
         <Navbar />
         <Routes>
+
           <Route path='/' element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/other" element={<Other />} />

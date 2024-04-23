@@ -2,7 +2,10 @@ import React from 'react'
 
 const Other = () => {
     return (
-        <div>Other</div>
+        <div>
+            <h1>Form</h1>
+
+        </div>
     )
 }
 

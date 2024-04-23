@@ -1,14 +1,5 @@
 import projectCollections from "../models/projectSchema.js";
-
-export const getAllProjects = async (req, res) => {
-    try {
-        const allProjects = await projectCollections.find()
-        res.json({ success: true, data: allProjects })
-    } catch (error) {
-        res.json(error)
-    }
-}
-
+import imgCollection from "../models/imgSchema.js"; // Імпорт моделі для зображень
 
 export const addNewProject = async (req, res) => {
     try {
@@ -26,12 +17,41 @@ export const addNewProject = async (req, res) => {
         });
 
         // Зберегти новий проект у базі даних
-        const savedProject = await newProject.save();
+        await newProject.save();
 
-        // Відправити успішну відповідь
-        res.status(201).json({ success: true, data: savedProject });
+        // Зберегти зображення в колекцію
+        if (Array.isArray(img)) {
+            for (const image of img) {
+                await imgCollection.create({
+                    filename: Date.now() + '_' + image.name,
+                    data: image.data,
+                });
+                // newProject.img.push(newImage.filename);
+            }
+        } else {
+            await imgCollection.create({
+                filename: Date.now() + 'img',
+                // data: img.data,
+            });
+            // newProject.img.push(newImage.filename);
+        }
+
+        // Зберегти оновлену версію проекту з посиланнями на зображення
+        const updatedProject = await newProject.save();
+
+        res.status(201).json({ success: true, data: updatedProject });
     } catch (error) {
         // Відправити помилку, якщо щось пішло не так
+        console.error('Error saving project:', error);
         res.status(500).json({ success: false, error: error.message });
+    }
+};
+export const getAllProjects = async (req, res) => {
+    try {
+        const allProjects = await projectCollections.find().toArray(); // Конвертуємо курсор у масив
+
+        res.json(allProjects); // Повертаємо просто масив проектів
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message }); // Повертаємо помилку зі статусом 500
     }
 };
