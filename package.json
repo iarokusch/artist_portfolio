@@ -2,5 +2,10 @@
   "dependencies": {
     "dotenv": "^16.4.5",
     "mysql2": "^3.11.2"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "build": "webpack --config webpack.config.js",
+    "deploy": "npm run build && rsync -avz ./build/ user@your-server:/path/to/deployment"
   }
 }
