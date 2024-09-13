@@ -6,7 +6,7 @@ import Other from "./components/Other";
 import Projects from "./components/Projects";
 import Works from "./components/Works";
 import Home from './components/Home';
-
+import UploadForm from './components/UploadForm';
 import './App.css';
 
 function App() {
@@ -21,6 +21,7 @@ function App() {
           <Route path="/other" element={<Other />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/works" element={<Works />} />
+          <Route path="/upload" element={<UploadForm />} />
         </Routes>
       </div>
     </Router>

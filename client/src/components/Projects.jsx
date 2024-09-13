@@ -3,42 +3,41 @@ import axios from 'axios';
 
 const Projects = () => {
     const [projects, setProjects] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get('http://localhost:3000/')
+        axios.get('http://localhost:3000/api/projects')
             .then(response => {
-                // Отримали дані про проекти з сервера
-                const projectsData = response.data;
-                // Перетворюємо об'єкт у масив
-                const projectsArray = Object.values(projectsData);
-
-                // Зберігаємо отриманий масив проектів у стані компонента
-                setProjects(projectsArray);
-                console.log(projects)
+                setProjects(response.data);
+                setLoading(false);
             })
             .catch(error => {
                 console.error('Error fetching projects:', error);
+                setLoading(false);
             });
     }, []);
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <div className="projects-container">
             <div className='min-h-[100vh] mt-[150px]'>
-
-                {projects.map((project) => {
-                    <div key={project._id}>{project.title}</div>
-                })}
+                {projects.length > 0 ? (
+                    projects.map((project) => (
+                        <div key={project.id}>
+                            <h2>{project.title}</h2>
+                            <p>{project.description}</p>
+                            {project.imgUrl && <img src={project.imgUrl} alt={project.title} />}
+                        </div>
+                    ))
+                ) : (
+                    <p>No projects available</p>
+                )}
             </div>
-            {/* {projects.map((project) => (
-                <div key={project._id} className="project">
-                  
-                    <h3>{project._id}</h3>
-
-                </div>
-            ))} */}
         </div>
     );
 }
 
 export default Projects;
-
