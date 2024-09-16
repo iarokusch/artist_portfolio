@@ -1,24 +1,62 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 #root {
-  max-width: 1280px;
+
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
 
 .navbar {
+  z-index: 10;
+  position: relative;
   display: flex;
-
+  position: fixed;
+  top: 0;
   justify-content: left;
   align-items: center;
 }
 
 .iconname {
+  position: fixed;
+  /* Фіксує елемент на сторінці */
+  top: 50%;
+  /* Встановлює елемент на половині висоти сторінки */
+  left: 150px;
+  /* Вирівнює елемент по лівому краю сторінки */
+  transform: translateY(-50%) rotate(-90deg);
+  /* Вирівнює елемент по вертикалі та обертає його на 90 градусів */
+  transform-origin: left bottom;
+  /* Визначає точку обертання, щоб текст не вийшов за межі контейнера */
   margin-right: 50px;
-  align-items: center;
+  /* Додає відступ справа, щоб віддалити від інших елементів */
+  display: flex;
+  /* Дозволяє використовувати flexbox властивості */
+  align-items: flex-start;
+  /* Вирівнює вміст по верхньому краю після обертання */
   justify-content: center;
+  /* Центрує вміст по горизонталі всередині контейнера */
+  height: auto;
+  /* Встановлює висоту автоматично, щоб текст не виходив за межі контейнера */
+  white-space: nowrap;
+  /* Запобігає розриву тексту на нові рядки */
+  font-size: 6rem;
+  /* Задає розмір шрифту */
+  font-weight: bold;
+  /* Робить шрифт жирним */
+  white-space: nowrap;
+  /* Запобігання переносу тексту */
+
+  width: fit-content;
+  /* Ширина контейнера */
+
+  /* background-color: lightgrey; */
+  /* Колір фону для візуалізації */
+
 }
+
+
+
 
 .navigator {
   display: flex;
@@ -41,4 +79,36 @@
   /* Add minimum spacing between list items */
   font-family: 'Roboto', sans-serif;
   /* Example: Popular font for portfolios */
+}
+
+/* Контейнер для зображення */
+.image-container {
+  max-width: 100%;
+  /* Забезпечити, щоб контейнер не перевищував ширину батьківського елемента */
+  overflow: hidden;
+  /* Приховати частини зображення, що виходять за межі контейнера */
+  position: relative;
+  /* Для коректного позиціювання зображення всередині контейнера */
+  z-index: 1
+}
+
+.image-container img {
+
+  width: 50%;
+  /* Встановити ширину зображення */
+  height: auto;
+  /* Автоматично зберігати пропорції зображення */
+  display: block;
+  /* Забезпечити, що зображення займає весь простір контейнера */
+  position: relative;
+}
+
+.vikno {
+
+  transform: translateX(180px);
+  /* Перемістити зображення вліво */
+}
+
+.fxk {
+  transform: translateX(580px);
 }

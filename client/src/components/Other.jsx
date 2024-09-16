@@ -1,12 +1,12 @@
-import React from 'react'
+// import React from 'react'
 
-const Other = () => {
-    return (
-        <div>
-            <h1>Form</h1>
+// const Other = () => {
+//     return (
+//         <div>
+//             <h1>Form</h1>
 
-        </div>
-    )
-}
+//         </div>
+//     )
+// }
 
-export default Other
+// export default Other
