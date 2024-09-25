@@ -208,6 +208,126 @@
   }
 }
 
+@media (min-width: 768px) and (max-width: 1023px) {
+  .about {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cv {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .foto {
+    width: 100%;
+  }
+
+  .iconname {
+    font-size: 4rem;
+  }
+
+  .image-container {
+    justify-content: center;
+  }
+
+  .hause,
+  .insect {
+    width: 60%;
+    margin-bottom: 10px;
+  }
+}
+
+.close-button {
+  position: absolute;
+  right: 600px;
+  text-decoration: none;
+  color: #000;
+  font-size: 24px;
+  /* Розмір кнопки закриття */
+}
+
+/* Для мобільних телефонів */
+@media (max-width: 767px) {
+  .image-container {
+    flex-direction: column;
+    gap: 20px;
+    /* Додамо відстань між елементами */
+    align-items: center;
+    /* Вирівнюємо елементи по центру */
+  }
+
+  .image-container * {
+    transform: none;
+    width: 100%;
+    /* Зображення займає всю ширину контейнера */
+    max-width: 100%;
+    /* Забезпечуємо максимальну ширину зображення */
+  }
+
+  .iconname {
+    font-size: 2rem;
+    left: 40px;
+  }
+
+
+
+  .about {
+    flex-direction: column;
+    gap: 10px;
+
+  }
+
+  .cv {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 10px;
+    margin: 0;
+  }
+
+  .cv dd {
+    margin: 0;
+  }
+
+  .navigator ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navigator li {
+    margin-bottom: 10px;
+  }
+
+  .hause,
+  .insect,
+  .vikno,
+  .fxk,
+  .plakat,
+  .kylym {
+    width: 100%;
+    /* Кожне зображення буде займати всю ширину контейнера */
+    margin-bottom: 20px;
+    /* Додаємо відстань між зображеннями */
+  }
+
+  .hause img,
+  .insect img,
+  .vikno img,
+  .fxk img,
+  .plakat img,
+  .kylym img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Забезпечуємо блоковий вигляд зображень */
+  }
+
+  .close-button {
+    right: 0px;
+  }
+}
+
+
 
 .modal {
   position: fixed;
@@ -284,13 +404,4 @@
   /* Ширина фотографій 100% контейнера */
   height: auto;
   /* Автоматичне збереження пропорцій */
-}
-
-.close-button {
-  position: fixed;
-  right: 600px;
-  text-decoration: none;
-  color: #000;
-  font-size: 24px;
-  /* Розмір кнопки закриття */
 }
