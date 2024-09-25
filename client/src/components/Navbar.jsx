@@ -7,10 +7,9 @@ const Navbar = () => {
 
             <div className='navigator'>
                 <ul>
-                    <li><Link to="/works">WORKS</Link></li>
+
                     <li><Link to="/about">ABOUT</Link></li>
-                    {/* <li><Link to="/other">OTHER</Link></li> */}
-                    <li><Link to="/projects">PROJECTS</Link></li>
+
 
                 </ul>
             </div>

@@ -1,11 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 #root {
-
-
-
   max-width: 100%;
-
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -50,14 +46,13 @@
   /* Робить шрифт жирним */
   white-space: nowrap;
   /* Запобігання переносу тексту */
-
   width: fit-content;
   /* Ширина контейнера */
 
-  /* background-color: lightgrey; */
-  /* Колір фону для візуалізації */
-
+  z-index: 9;
+  /* Високе значення для впевненості, що елемент знаходиться поверх інших */
 }
+
 
 
 
@@ -85,34 +80,217 @@
   /* Example: Popular font for portfolios */
 }
 
-/* Контейнер для зображення */
 .image-container {
-  max-width: 100%;
-  /* Забезпечити, щоб контейнер не перевищував ширину батьківського елемента */
-  overflow: hidden;
-  /* Приховати частини зображення, що виходять за межі контейнера */
+  display: inline-flex;
+  /* Контейнер адаптується до вмісту */
+  flex-wrap: wrap;
+  /* Дозволяє переносити елементи на новий рядок */
+  gap: 10px;
+  /* Відстань між елементами */
+  padding: 0;
+  /* Без додаткових внутрішніх відступів */
+  margin: 0;
+  /* Без зовнішніх відступів */
+  max-width: 50%;
+  /* Забезпечує адаптацію ширини під контент, але не більше 100% від ширини сторінки */
+}
+
+.vikno,
+.fxk,
+.plakat,
+.kylym {
+  display: inline-block;
+  /* Кожен контейнер займає лише стільки місця, скільки потрібно для його вмісту */
   position: relative;
-  /* Для коректного позиціювання зображення всередині контейнера */
+  /* Для використання transform за потреби */
+  width: auto;
+  /* Автоматична ширина, підлаштовується під вміст */
+}
+
+.vikno img,
+.fxk img,
+.plakat img,
+.kylym img {
+  display: block;
+  /* Щоб уникнути зайвого простору під зображеннями */
+  width: auto;
+  /* Автоматична ширина, відповідно до розміру зображення */
+  height: auto;
+  /* Автоматичне збереження пропорцій */
+}
+
+.hause {
+  width: 40%;
+  transform: translate(800px, -500px);
+}
+
+/* Встановлення конкретних стилів для кожного елемента */
+.vikno {
+  transform: translateX(-400px);
   z-index: 1
 }
 
-.image-container img {
-
-  width: 50%;
-  /* Встановити ширину зображення */
-  height: auto;
-  /* Автоматично зберігати пропорції зображення */
-  display: block;
-  /* Забезпечити, що зображення займає весь простір контейнера */
-  position: relative;
-}
-
-.vikno {
-
-  transform: translateX(180px);
-  /* Перемістити зображення вліво */
+.insect {
+  width: 60%;
+  transform: translate(500px, -900px);
 }
 
 .fxk {
-  transform: translateX(580px);
+  transform: translate(400px, -500px);
+}
+
+.plakat {
+  width: 300px;
+  transform: translate(900px, -600px);
+}
+
+.kylym {
+  width: 80%;
+  transform: translate(-400px, -900px);
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  /* Stack vertically by default */
+  gap: 20px;
+}
+
+.cv {
+  width: 100%;
+  /* Full width for smaller screens */
+  line-height: 1.6;
+  font-size: 1rem;
+  padding: 20px;
+  margin-left: 100px;
+}
+
+.cv h3 {
+  margin-bottom: 10px;
+}
+
+.cv dl {
+  margin: 0;
+  padding: 0;
+
+  .cv dl {
+    margin: 0;
+    padding: 0;
+  }
+
+  .cv dt {
+    font-weight: bold;
+    margin-top: 15px;
+  }
+
+  .cv dd {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .about {
+    flex-direction: row;
+  }
+
+  .cv {
+    width: 50%;
+  }
+
+  .foto {
+    width: 50%;
+  }
+
+  .foto img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(212, 211, 211, 0.8);
+  /* Напівпрозорий фон */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  /* Високе значення для поверхності */
+  overflow: auto;
+  /* Дозволити прокрутку */
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  /* Встановити ширину контейнера */
+  max-width: 600px;
+  /* Максимальна ширина */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  max-height: 80%;
+  /* Максимальна висота модального вікна */
+  overflow-y: auto;
+  /* Дозволити вертикальну прокрутку */
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+  /* Ширина вертикального скролл-бара */
+  height: 8px;
+  /* Висота горизонтального скролл-бара */
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #888;
+  /* Колір бігунка */
+  border-radius: 10px;
+  /* Заокруглення країв бігунка */
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: #cfc9c9;
+  /* Колір бігунка при наведенні */
+}
+
+.info-block {
+  margin: 20px 0;
+  /* Відступ для блоку з текстом */
+}
+
+.photo-gallery {
+  display: flex;
+  flex-direction: column;
+  /* Вирівнювання фотографій по вертикалі */
+  gap: 10px;
+  /* Відстань між фотографіями */
+}
+
+.photo-gallery img {
+  width: 100%;
+  /* Ширина фотографій 100% контейнера */
+  height: auto;
+  /* Автоматичне збереження пропорцій */
+}
+
+.close-button {
+  position: fixed;
+  right: 600px;
+  text-decoration: none;
+  color: #000;
+  font-size: 24px;
+  /* Розмір кнопки закриття */
 }
